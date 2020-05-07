@@ -122,12 +122,11 @@ int main(int argc, char const *const *argv) {
   die_on_error(amqp_socket_open_noblock(socket, hostname, port, tv),
                "opening SSL/TLS connection");
 
-  die_on_amqp_error(amqp_login(conn, "/", 0, 131072, 0, AMQP_SASL_METHOD_PLAIN,
+  die_on_amqp_error(amqp_login(conn, "/", 0, 131072, 0, AMQP_SASL_METHOD_EXTERNAL,
                                "guest", "guest"),
                     "Logging in");
 
   sleep(20);
-
   die_on_amqp_error(amqp_connection_close(conn, AMQP_REPLY_SUCCESS),
                     "Closing connection");
   die_on_error(amqp_destroy_connection(conn), "Ending connection");

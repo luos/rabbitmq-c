@@ -49,4 +49,8 @@ target_link_libraries(amqp_listenq ${RMQ_LIBRARY_TARGET})
 if (ENABLE_SSL_SUPPORT)
 add_executable(amqp_ssl_connect amqp_ssl_connect.c ${COMMON_SRCS})
 target_link_libraries(amqp_ssl_connect ${RMQ_LIBRARY_TARGET})
+
+add_executable(amqp_ssl_connect2 amqp_ssl_connect2.c ${COMMON_SRCS})
+target_link_libraries(amqp_ssl_connect2 ${RMQ_LIBRARY_TARGET})
+
 endif (ENABLE_SSL_SUPPORT)
